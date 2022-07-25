@@ -76,6 +76,10 @@
   padding: 0 1rem;
 }
 
+.TopicLink {
+  color: white;
+}
+
 .footer {
   background-color: midnightblue;
   color: white;

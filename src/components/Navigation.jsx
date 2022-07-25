@@ -1,12 +1,29 @@
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+
 export default function Navigation() {
+
+    const [topics, setTopics] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://marklaz-nc-news.herokuapp.com/api/topics`)
+        .then((res) => res.json())
+        .then(({topics}) => {
+            setTopics(topics)
+        })
+    }, [])
+
+
     return (
         <nav className="MainNav">
-            <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>Link 3</li>
-                <li>Link 4</li>
-                <li>Link 5</li>
+            <ul className="Topics">
+                {topics.map(topic => {
+                    return (
+                        <li className="topic" key={topic.slug}>
+                        <Link  className="TopicLink" to={`/topics/${topic.slug}`}>{topic.slug}</Link>
+                        </li>
+                    )
+                })}
             </ul>
         </nav>
     )

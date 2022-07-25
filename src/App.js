@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useParams} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import './App.css';
 
@@ -6,8 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Articles from './components/Articles';
 import TopicPage from './components/TopicPage';
-
-import { useEffect, useState } from 'react';
+import SingleArticle from './components/SingleArticle';
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Articles />}/>
           <Route path="/topics/:topic" element={<TopicPage />}/>
+          <Route path="/articles/:article_id" element={<SingleArticle />}/>
         </Routes>
         
         <Footer />

@@ -199,6 +199,63 @@ header {
   margin-right: 1rem;
 }
 
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin-bottom: 2rem;
+}
+
+.comment-card {
+  border-top: 1px dotted darkblue;
+  display: flex;
+  padding: 1.5rem;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-card div {
+  margin: 0 1rem;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.comment-card div:first-of-type {
+  margin-left: 0;
+  justify-content: flex-start;
+}
+
+.comment-card div:last-of-type {
+  margin: 0;
+  justify-content: flex-end;
+}
+
+.comment-author {
+  width: 10%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment-author-name {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.comment-author-date {
+  margin:0
+}
+
+.comment-body {
+  width: 60%;
+}
+
+.comment-votes {
+  width: 10%;
+}
+
 /* rules for small screens */
 
 @media only screen and (min-width: 700px) {

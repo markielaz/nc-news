@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
+import { formatDate } from "./utils/api";
 
 export default function Articles() {
 
@@ -39,7 +40,7 @@ export default function Articles() {
                             <p>Author: {article.author}</p>
                             <p>Votes: {article.votes}</p>
                             <p>Comments: {article.comment_count}</p>
-                            <p>Posted: {article.created_at}</p>
+                            <p>Posted: {formatDate(article.created_at)}</p>
                         </article>
                     )
                 })}

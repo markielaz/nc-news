@@ -17,6 +17,9 @@ export default function Navigation() {
     return (
         <nav className="MainNav">
             <ul className="Topics">
+                <li className="topic">
+                    <Link  className="TopicLink" to={`/`}>home</Link>
+                </li>
                 {topics.map(topic => {
                     return (
                         <li className="topic" key={topic.slug}>

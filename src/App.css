@@ -41,14 +41,53 @@
   }
 }
 
+#logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo img {
+  height: 85px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: midnightblue;
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.logo-text .alt-color {
+  color:#FDB200;
+}
+
+.logo-text .subtitle {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
 .articles-section {
   max-width: 500px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .article {
   border: 1px solid grey;
   margin: 2rem;
   padding: 2rem;
+  width: 100%;
+  align-self: stretch;
 }
 
 .TopBar {
@@ -65,6 +104,7 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  border-top: 5px solid #ffb300;
 }
 
 .MainNav ul {
@@ -100,7 +140,80 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
+  max-width: 70%;
   margin: 2rem;
   padding: 2rem;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 5px solid midnightblue
+}
+
+.header-section {
+  padding: 1rem 2rem;
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.user-avatar {
+  height: 60px;
+}
+
+
+.nav-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logged-in-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#logged-in-user span {
+  margin-right: 1rem;
+}
+
+#logged-in-avatar {
+  height: 60px;
+  margin-right: 1rem;
+}
+
+/* rules for small screens */
+
+@media only screen and (min-width: 700px) {
+  .articles-section {
+    max-width: unset;
+    flex-wrap: wrap;
+  }
+  .article {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .article {
+    width: 20%;
+    margin: 1rem;
+  }
 }

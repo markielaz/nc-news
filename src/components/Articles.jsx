@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 
-
 export default function Articles() {
 
     const navigate = useNavigate();
@@ -37,7 +36,6 @@ export default function Articles() {
                         <article className="article" key={article.article_id} onClick={() => clickArticle(article.article_id)}>
                             <h3>{article.title}</h3>
                             <p>Topic: {article.topic}</p>
-                            {/* <p>{article.body}</p> */}
                             <p>Author: {article.author}</p>
                             <p>Votes: {article.votes}</p>
                             <p>Comments: {article.comment_count}</p>

@@ -1,11 +1,16 @@
-import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router";
 
 
 export default function Articles() {
 
+    const navigate = useNavigate();
+
     const [articles, setArticles] = useState([]);
-    const [articleLink, setArticleLink] = useState('');
+
+    const clickArticle = (article_id) => {
+        navigate(`/articles/${article_id}`)
+    }
 
     const { topic } = useParams();
 
@@ -29,7 +34,7 @@ export default function Articles() {
         <section className="articles-section">
                 {articles.map(article => {
                     return (
-                        <article className="article" key={article.article_id} data-link="https://www.google.com">
+                        <article className="article" key={article.article_id} onClick={() => clickArticle(article.article_id)}>
                             <h3>{article.title}</h3>
                             <p>Topic: {article.topic}</p>
                             {/* <p>{article.body}</p> */}

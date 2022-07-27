@@ -47,7 +47,9 @@ export default function Header() {
                 ?   <div className="nav-login">
                         <div id="logged-in-user">
                             <span>Hello {loggedInUser.username}</span>
-                            <img id="logged-in-avatar" src={loggedInUser.avatar_url} alt='user-avatar'/>
+                            <div className="avatar-wrapper">
+                                <img id="logged-in-avatar" src={loggedInUser.avatar_url} alt='user-avatar'/>
+                            </div>
                         </div>
                         <button id="log-out-button" onClick={handleLogOut}>Log out?</button>
                     </div> 

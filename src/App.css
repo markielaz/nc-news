@@ -187,10 +187,12 @@ header {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-avatar {
-  height: 60px;
+  max-height: 65px;
 }
 
 
@@ -205,15 +207,24 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 #logged-in-user span {
   margin-right: 1rem;
 }
 
-#logged-in-avatar {
-  height: 60px;
+.avatar-wrapper {
+  background-color: white;
+  height: 50px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  overflow: hidden;
   margin-right: 1rem;
+}
+
+#logged-in-avatar {
+  height: 100%;
 }
 
 .comments-section {

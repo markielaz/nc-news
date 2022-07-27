@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="footer">
-            Footer Goes Here
+            "NC News" Project for Northcoders by Mark Lazarus
         </footer>
     )
 }

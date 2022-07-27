@@ -18,7 +18,7 @@ export default function Navigation() {
         <nav className="MainNav">
             <ul className="Topics">
                 <li className="topic">
-                    <Link  className="TopicLink" to={`/`}>home</Link>
+                    <Link  className="TopicLink" to={`/`}>all topics</Link>
                 </li>
                 {topics.map(topic => {
                     return (

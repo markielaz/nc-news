@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams} from 'react-router-dom';
-import { upVote, downVote } from "./utils/api";
+import { upVote, downVote, formatDate } from "./utils/api";
 import { useContext } from "react"
 import { UserContext } from "../contexts/User"
+import Comments from "./Comments";
 
 export default function SingleArticle() {
 
@@ -12,7 +13,7 @@ export default function SingleArticle() {
     const [voted, setVoted] = useState(false);
     const [loginPrompt, setLoginPrompt] = useState(null)
 
-    const {loggedInUser, setLoggedInUser, isLoggedIn} = useContext(UserContext);
+    const {isLoggedIn} = useContext(UserContext);
 
     const voteUp = () => {
         if (isLoggedIn) {
@@ -42,7 +43,8 @@ export default function SingleArticle() {
     }, [article, votes, article_id]);
 
 
-    return( 
+    return(
+        <>
         <article className="SingleArticle">
             <h2>{article.title}</h2>
             <p>Topic: {article.topic}</p>
@@ -50,7 +52,7 @@ export default function SingleArticle() {
             <p>Author: {article.author}</p>
             <p>Votes: {article.votes}</p>
             <p>Comments: {article.comment_count}</p>
-            <p>Posted: {article.created_at}</p>
+            <p>Posted: {formatDate(article.created_at)}</p>
 
             <div className='ArticleVotes'>
                 {
@@ -61,5 +63,7 @@ export default function SingleArticle() {
             </div>
             <p className="prompt">{loginPrompt}</p>
         </article>
+        <Comments />
+        </> 
     )
 }

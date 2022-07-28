@@ -4,11 +4,9 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
 import logo from "../bulb-logo.png"
 
-export default function Header() {
-
+export default function Header({selected, setSelected}) {
 
     const {loggedInUser, setLoggedInUser, isLoggedIn} = useContext(UserContext);
-
 
     const navigate = useNavigate();
     
@@ -59,7 +57,7 @@ export default function Header() {
                     </div>
             </div>
         </header>
-        <Navigation />
+        <Navigation selected={selected} setSelected={setSelected} />
         </>
     )
 }

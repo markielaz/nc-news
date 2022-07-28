@@ -6,8 +6,23 @@ export const baseApi = axios.create({
 })
 
 export const getUsers = () => {
-    return baseApi.get(`/users`).then(({data}) => {
+    return baseApi.get(`/users`)
+    .then(({data}) => {
         return data.users
+    })
+}
+
+export const getTopics = () => {
+    return baseApi.get(`/topics`)
+    .then(({data}) => {
+        return data.topics
+    })
+}
+
+export const getArticles = (sortby, topicQuery) => {
+    return baseApi.get(`/articles`, {params: {topic: topicQuery, sort_by: sortby}})
+    .then(({data}) => {
+        return data.articles
     })
 }
 

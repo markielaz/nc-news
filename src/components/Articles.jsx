@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
-import { formatDate } from "./utils/api";
+import { formatDate, getArticles } from "./utils/api";
 
-export default function Articles() {
+export default function Articles({selected}) {
 
     const navigate = useNavigate();
 
@@ -15,20 +15,11 @@ export default function Articles() {
     const { topic } = useParams();
 
     useEffect(() => {
-        if (topic) {
-            fetch(`https://marklaz-nc-news.herokuapp.com/api/articles?topic=${topic}`)
-            .then((res) => res.json())
-            .then(({articles}) => {
-                setArticles(articles);
-            });
-        } else {
-        fetch('https://marklaz-nc-news.herokuapp.com/api/articles')
-            .then((res) => res.json())
-            .then(({articles}) => {
-                setArticles(articles);
-            });
-        }
-    }, [topic]);
+            getArticles(selected, topic)
+            .then((articles) => {
+                setArticles(articles)
+            })
+    }, [selected, topic])
 
     return (
         <section className="articles-section">

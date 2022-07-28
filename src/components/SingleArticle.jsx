@@ -4,6 +4,7 @@ import { upVote, downVote, formatDate } from "./utils/api";
 import { useContext } from "react"
 import { UserContext } from "../contexts/User"
 import Comments from "./Comments";
+import {AiOutlineHeart, AiFillHeart, AiOutlineComment} from 'react-icons/ai'
 
 export default function SingleArticle() {
 
@@ -72,7 +73,7 @@ export default function SingleArticle() {
                     Date Published: {formatDate(article.date)}
                 </span>
                 <span className="article-author">
-                    - by <a href="#"><span className="author-name">{article.author}</span></a>
+                    - by <span className="author-name">{article.author}</span>
                 </span>
             </div>            
             <div className="topicImageWrapper topicImageWrapper-single">
@@ -83,23 +84,32 @@ export default function SingleArticle() {
                     article.topic === 'coding' ? topicImage[0]
                     : article.topic === 'cooking' ? topicImage[1]
                     : topicImage[2]
-                }/>
-            </div>
-            <div className="article-body">
-                <p>{article.body}</p>
-            </div>
-            <p>Votes: {article.votes}</p>
-            <p>Comments: {article.comments}</p>
-            
-
-            <div className='ArticleVotes'>
-                {
-                voted 
-                ? <button id="upvoteButton" onClick={() => voteDown()}>Toggle Vote Down</button> 
-                : <button id="downvoteButton" onClick={() => voteUp()}>Toggle Vote Up</button>
                 }
+                alt={
+                    article.topic === 'coding' ? 'coding on a laptop'
+                    : article.topic === 'cooking' ? 'cooking a recipe with diverse ingredients'
+                    : 'football in focus with stadium blurred in the background'
+                }
+                />
             </div>
-            <p className="prompt">{loginPrompt}</p>
+            <section className="article-body">
+                <p>{article.body}</p>
+            </section>
+            <hr className="article-divider" />
+            <section className="comments-and-votes">
+                <div className='ArticleVotes'>{article.votes} Votes
+                    {
+                    voted 
+                    ? <button id="upvoteButton" onClick={() => voteDown()}>{<AiFillHeart/>}</button> 
+                    : <button id="downvoteButton" onClick={() => voteUp()}>{<AiOutlineHeart/>}</button>
+                    }
+                </div>
+                <div className="ArticleComments">
+                    <button id="upvoteButton" onClick={() => voteDown()}>{<AiOutlineComment/>}</button>
+                    {article.comments} Comments
+                </div>
+                <p className="prompt">{loginPrompt}</p>
+            </section>
         </article>
         <Comments />
         </> 

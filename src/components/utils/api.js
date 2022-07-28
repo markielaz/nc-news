@@ -58,5 +58,8 @@ export const postComment = (article_id, author, body) => {
     .then((res) => {
         return res.data.comment
     })
+}
 
+export const deleteComment = (comment_id) => {
+    baseApi.delete(`/comments/${comment_id}`)
 }

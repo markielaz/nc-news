@@ -2,7 +2,7 @@ import Navigation from "./Navigation"
 import { UserContext } from "../contexts/User"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
-import logo from "../bulb-logo.png"
+import logo from "../images/bulb-logo.png"
 
 export default function Header({selected, setSelected}) {
 

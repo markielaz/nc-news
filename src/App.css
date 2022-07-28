@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #F0F0F0;
 }
 
 .App-logo {
@@ -81,12 +82,11 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding: 1rem 0;
 }
 
 .article {
-  border: 1px solid grey;
   margin: 2rem;
-  /* padding: 2rem; */
   width: 100%;
   align-self: stretch;
 }
@@ -140,10 +140,19 @@
 
 .article {
   cursor: pointer;
+  background-color: white;
+  /* border-radius: 0.25rem; */
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+}
+
+.articles-comments-votes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.5rem 0;
 }
 
 .SingleArticle {
-  border: 1px solid grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,6 +161,9 @@
   margin: 2rem;
   padding: 2rem;
   text-align: left;
+  background-color: white;
+  /* border-radius: 0.25rem; */
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
 }
 
 header {
@@ -167,7 +179,7 @@ header {
 .header-inner {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   align-items: center;
 }
 
@@ -221,6 +233,11 @@ header {
   border-radius: 50%;
   overflow: hidden;
   margin-right: 1rem;
+  min-height: 3rem;
+  min-width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #logged-in-avatar {
@@ -284,8 +301,26 @@ header {
   width: 10%;
 }
 
+#commentForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .article-top {
   padding: 0 2rem;
+}
+
+.user-avatar-wrapper {
+  display: flex;
+  background-color: white;
+  border-radius: 50%;
+  min-width: 5rem;
+  min-height: 5rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px -14px rgb(0 0 0 / 25%);
 }
 
 

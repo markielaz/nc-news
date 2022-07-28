@@ -26,7 +26,9 @@ export default function LoginPage() {
             <div className="users">
             {users.map((user) => {
                 return <figure className="user-card" key={user.username} onClick={() => clickUser(user)}>
+                    <div className="user-avatar-wrapper">
                     <img className="user-avatar" src={user.avatar_url} alt={user.username}/>
+                    </div>
                     <h5>{user.username}</h5>
                 </figure>
             })}

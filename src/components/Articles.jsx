@@ -40,15 +40,6 @@ export default function Articles() {
                     ];
                     return (
                         <article className="article" key={article.article_id} onClick={() => clickArticle(article.article_id)}>
-                            <div className="article-top">
-                            <h3>{article.title}</h3>
-                            <span>
-                                Author: {article.author}
-                            </span>
-                            <span>
-                                Posted: {formatDate(article.created_at)}
-                            </span>
-                            </div>
                             <div className="topicImageWrapper">
                                 <div className="topicHeading">
                                     <h3>{article.topic}</h3>
@@ -57,14 +48,31 @@ export default function Articles() {
                                     article.topic === 'coding' ? topicImage[0]
                                     : article.topic === 'cooking' ? topicImage[1]
                                     : topicImage[2]
+                                } alt={
+                                    article.topic === 'coding' ? 'coding on a laptop'
+                                    : article.topic === 'cooking' ? 'cooking a recipe with diverse ingredients'
+                                    : 'football in focus with stadium blurred in the background'
                                 }/>
                             </div>
-                            <span>
-                                Votes: {article.votes}
-                            </span>
-                            <span>
-                                Comments: {article.comment_count}
-                            </span>
+                            <div className="article-under-image">
+                                <div className="article-top">
+                                <h3>{article.title}</h3>
+                                <span>
+                                    Author: {article.author}
+                                </span>
+                                <span>
+                                    Posted: {formatDate(article.created_at)}
+                                </span>
+                                </div>
+                                <div className="articles-comments-votes">
+                                    <span>
+                                        Votes: {article.votes}
+                                    </span>
+                                    <span>
+                                        Comments: {article.comment_count}
+                                    </span>
+                                </div>
+                            </div>
                         </article>
                     )
                 })}

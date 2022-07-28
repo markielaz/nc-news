@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "../contexts/User"
+import { getUsers } from "./utils/api"
 
 export default function LoginPage() {
 
@@ -14,12 +15,10 @@ export default function LoginPage() {
     }
 
     useEffect(() => {
-        fetch('https://marklaz-nc-news.herokuapp.com/api/users')
-            .then((res) => res.json())
-            .then(({users}) => {
-                setUsers(users);
-            });
-    }, []);
+        getUsers().then((users) => {
+            setUsers(users)
+        })
+    }, [])
 
     return(
         <div className="user-container">
@@ -27,7 +26,9 @@ export default function LoginPage() {
             <div className="users">
             {users.map((user) => {
                 return <figure className="user-card" key={user.username} onClick={() => clickUser(user)}>
+                    <div className="user-avatar-wrapper">
                     <img className="user-avatar" src={user.avatar_url} alt={user.username}/>
+                    </div>
                     <h5>{user.username}</h5>
                 </figure>
             })}

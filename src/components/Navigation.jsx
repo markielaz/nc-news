@@ -16,10 +16,13 @@ export default function Navigation() {
 
     return (
         <nav className="MainNav">
+            <label for="cars">Sort articles by:</label>
+            <select name="articles" id="articles">
+                <option value="volvo">date</option>
+                <option value="saab">most commented</option>
+                <option value="mercedes">most popular</option>
+            </select>
             <ul className="Topics">
-                <li className="topic">
-                    <Link  className="TopicLink" to={`/`}>home</Link>
-                </li>
                 {topics.map(topic => {
                     return (
                         <li className="topic" key={topic.slug}>

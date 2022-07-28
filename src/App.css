@@ -226,6 +226,28 @@ header {
   margin-right: 1rem;
 }
 
+.comments-and-votes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.comments-and-votes div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.comments-and-votes button {
+  display: flex;
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .avatar-wrapper {
   background-color: white;
   height: 50px;
@@ -238,6 +260,28 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.innerNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topics-title {
+  font-size: 3rem;
+  margin-bottom: 0;
+  color: #003D5B;
+  text-decoration: underline;
+}
+
+.innerNav label {
+  margin-right: 1rem;
+}
+
+.innerNav select {
+  height: 1.5rem;
+  width:fit-content;
 }
 
 #logged-in-avatar {
@@ -356,6 +400,13 @@ header {
 
 .article-body {
   white-space: pre-wrap;
+}
+
+.article-divider {
+  width: 100%;
+  border-style: dashed;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .topicImage {

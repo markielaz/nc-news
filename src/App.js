@@ -15,21 +15,19 @@ function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({});
   const isLoggedIn = Object.keys(loggedInUser).length > 0;
-
-
+  const [selected, setSelected] = useState('created_at')
 
   return (
     <BrowserRouter>
     <UserContext.Provider value = {{loggedInUser, setLoggedInUser, isLoggedIn}}>
         <div className="App">
-          <Header />
+          <Header setSelected={setSelected} selected={selected} />
           <Routes>
-            <Route path="/" element={<Articles />}/>
+            <Route path="/" element={<Articles selected={selected} setSelected={setSelected}/>}/>
             <Route path="/topics/:topic" element={<TopicPage />}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/articles/:article_id" element={<SingleArticle />}/>
           </Routes>
-          
           <Footer />
         </div>
       </UserContext.Provider>

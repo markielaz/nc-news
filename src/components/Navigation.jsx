@@ -39,6 +39,9 @@ export default function Navigation({selected, setSelected}) {
                 </select>
                 </div>
                 <ul className="Topics">
+                    <li className="topic">
+                        <Link className="TopicLink" to={`/`}>all</Link>
+                    </li>
                     {topics.map(topic => {
                         return (
                             <li className="topic" key={topic.slug}>

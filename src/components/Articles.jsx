@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { formatDate, getArticles } from "./utils/api";
+import {AiFillHeart, AiOutlineComment} from 'react-icons/ai'
+import { Error } from "./ErrorPage";
+
+
 import cooking from "../images/cooking.webp"
 import coding from "../images/coding.webp"
 import football from "../images/football.webp"
@@ -17,12 +21,22 @@ export default function Articles({selected}) {
 
     const { topic } = useParams();
 
+    const [error, setError] = useState(false);
+
     useEffect(() => {
             getArticles(selected, topic)
             .then((articles) => {
                 setArticles(articles)
             })
+            .catch((err) =>{
+                setError({err})
+            })
     }, [selected, topic])
+
+    if (error) {
+        console.log(error)
+        return <Error message={error} />
+    } else
 
     return (
         <section className="articles-section">
@@ -33,10 +47,11 @@ export default function Articles({selected}) {
                         football
                     ];
                     return (
+                        <>
                         <article className="article" key={article.article_id} onClick={() => clickArticle(article.article_id)}>
                             <div className="topicImageWrapper">
                                 <div className="topicHeading">
-                                    <h3>{article.topic}</h3>
+                                    <span>{article.topic}</span>
                                 </div>
                                 <img className="topicImage" src={
                                     article.topic === 'coding' ? topicImage[0]
@@ -51,23 +66,26 @@ export default function Articles({selected}) {
                             <div className="article-under-image">
                                 <div className="article-top">
                                 <h3>{article.title}</h3>
-                                <span>
-                                    Author: {article.author}
-                                </span>
-                                <span>
-                                    Posted: {formatDate(article.created_at)}
-                                </span>
+                                <div className="article-details">
+                                    <span className="article-author">
+                                        By: <span>{article.author}</span>
+                                    </span>
+                                    <span className="article-posted">
+                                        Posted: <span>{formatDate(article.created_at)}</span>
+                                    </span>
+                                </div>
                                 </div>
                                 <div className="articles-comments-votes">
-                                    <span>
-                                        Votes: {article.votes}
+                                    <span className="articles-votes">
+                                        {article.votes} Votes {<AiFillHeart/>}
                                     </span>
-                                    <span>
-                                        Comments: {article.comment_count}
+                                    <span className="articles-comments">
+                                    {<AiOutlineComment/>} {article.comment_count} Comments
                                     </span>
                                 </div>
                             </div>
                         </article>
+                            </>
                     )
                 })}
         </section>

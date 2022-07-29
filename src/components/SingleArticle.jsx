@@ -5,6 +5,7 @@ import { useContext } from "react"
 import { UserContext } from "../contexts/User"
 import Comments from "./Comments";
 import {AiOutlineHeart, AiFillHeart, AiOutlineComment} from 'react-icons/ai'
+import { Error } from "./ErrorPage";
 
 import cooking from "../images/cooking.webp"
 import coding from "../images/coding.webp"
@@ -24,8 +25,8 @@ export default function SingleArticle() {
     const [votes, setVotes] = useState(0);
     const [voted, setVoted] = useState(false);
     const [loginPrompt, setLoginPrompt] = useState(null)
-
     const {isLoggedIn} = useContext(UserContext);
+    const [error, setError] = useState(null)
 
     const voteUp = () => {
         if (isLoggedIn) {
@@ -60,6 +61,9 @@ export default function SingleArticle() {
                     comments: article.comment_count
                 })
             })
+            .catch((err)=>{
+                setError({err})
+            })
     }, [article, votes, article_id]);
 
     const topicImage = [
@@ -68,13 +72,18 @@ export default function SingleArticle() {
         football
     ];
 
+    if (error) {
+        console.log(error)
+        return <Error message={error} />
+    } else
+
     return(
         <>
         <article className="SingleArticle">
             <h2>{article.title}</h2>
             <div className="article-info">
                 <span className="date-published">
-                    Date Published: {formatDate(article.date)}
+                    Date Published: <span className="date-published-date">{formatDate(article.date)}</span>
                 </span>
                 <span className="article-author">
                     - by <span className="author-name">{article.author}</span>

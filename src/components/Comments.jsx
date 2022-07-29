@@ -2,20 +2,17 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { getComments, postComment, deleteComment, formatDate } from "./utils/api";
 import { UserContext } from "../contexts/User";
-import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
+import {AiFillHeart} from 'react-icons/ai'
 
 
 export default function Comments() {
 
-    const { article_id, comment_id } = useParams();
+    const { article_id } = useParams();
 
     const [comments, setComments] = useState([]);
     const [commentBody, setCommentBody] = useState('');
     const {loggedInUser, isLoggedIn} = useContext(UserContext)
     const [deleting, setDeleting] = useState(false)
-
-    const [loginPrompt, setLoginPrompt] = useState(null)
-
 
     const handleTextChange = (event) => {
         setCommentBody(event.target.value)
@@ -26,8 +23,6 @@ export default function Comments() {
             event.preventDefault();
             setCommentBody('')
             postComment(article_id, loggedInUser.username, commentBody)
-            alert('Thanks for your comment!')
-
         } else {
             event.preventDefault();
             setCommentBody('')

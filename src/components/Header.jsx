@@ -49,10 +49,10 @@ export default function Header({selected, setSelected}) {
                                 <img id="logged-in-avatar" src={loggedInUser.avatar_url} alt='user-avatar'/>
                             </div>
                         </div>
-                        <button id="log-out-button" onClick={handleLogOut}>Log out?</button>
+                        <button id="log-out-button" className="nav-login-button" onClick={handleLogOut}>Log out?</button>
                     </div> 
                 :   <div>
-                        <button className="nav-login" onClick={() => clickLogin()}>Log in</button>
+                        <button className="nav-login nav-login-button" onClick={() => clickLogin()}>Log in</button>
                     </div>}
                     </div>
             </div>

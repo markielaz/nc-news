@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { formatDate, getArticles } from "./utils/api";
+import cooking from "../images/cooking.webp"
+import coding from "../images/coding.webp"
+import football from "../images/football.webp"
 
 export default function Articles({selected}) {
 
@@ -25,9 +28,9 @@ export default function Articles({selected}) {
         <section className="articles-section">
                 {articles.map(article => {
                     const topicImage = [
-                        'https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg',
-                        'https://images.pexels.com/photos/4551832/pexels-photo-4551832.jpeg',
-                        'https://images.pexels.com/photos/47354/the-ball-stadion-football-the-pitch-47354.jpeg'
+                        coding,
+                        cooking,
+                        football
                     ];
                     return (
                         <article className="article" key={article.article_id} onClick={() => clickArticle(article.article_id)}>

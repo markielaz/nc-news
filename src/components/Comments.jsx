@@ -1,15 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { getComments, postComment, formatDate } from "./utils/api";
+import { getComments, postComment, deleteComment, formatDate } from "./utils/api";
 import { UserContext } from "../contexts/User";
+import {AiOutlineHeart, AiFillHeart} from 'react-icons/ai'
+
 
 export default function Comments() {
 
-    const { article_id } = useParams();
+    const { article_id, comment_id } = useParams();
 
     const [comments, setComments] = useState([]);
     const [commentBody, setCommentBody] = useState('');
     const {loggedInUser, isLoggedIn} = useContext(UserContext)
+    const [deleting, setDeleting] = useState(false)
+
+    const [loginPrompt, setLoginPrompt] = useState(null)
 
 
     const handleTextChange = (event) => {
@@ -30,18 +35,30 @@ export default function Comments() {
         } 
     }
 
+    const deleteHandler = (value) => {
+        setDeleting(true)
+        deleteComment(value)
+        setTimeout(() => {
+            setDeleting(false)
+        }, 2000)
+    }
+
     useEffect(() => {
         getComments(article_id)
         .then((comments) => {
             setComments([...comments])
         })
-    }, [comments, article_id])
+    }, [comments, article_id, deleting])
 
     return (
-        <section className="comments-section">
+        <section className="comments-section" id="comments-section">
             <h3>Comments ({comments.length})</h3>
             <div>
-            <p>add a comment</p>
+                {
+                    isLoggedIn
+                    ? <p>add a comment</p>
+                    : <p>Please login to add a comment</p>
+                }
             <form id="commentForm" onSubmit={postSubmitHandler}>
                 <textarea placeholder="Write a comment..." onChange={handleTextChange} row='4' cols='50' value={commentBody} required/>
                 <button>Post Comment</button>
@@ -58,8 +75,12 @@ export default function Comments() {
                                 <p>{comment.body}</p>
                             </div>
                             <div className="comment-votes">
-                                <p>Votes: {comment.votes}</p>
-                            </div>
+                            {
+                                loggedInUser.username === comment.author
+                                ? <button className="deleteComment" onClick={() => deleteHandler(comment.comment_id)}>Delete</button> 
+                                : <button className="comment-votes-icon">{<AiFillHeart/>}<span className="comment-votes-count">{comment.votes}</span></button>
+                            }
+                                </div>
                         </article>
                     )
                 })}

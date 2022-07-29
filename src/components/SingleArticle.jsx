@@ -6,6 +6,10 @@ import { UserContext } from "../contexts/User"
 import Comments from "./Comments";
 import {AiOutlineHeart, AiFillHeart, AiOutlineComment} from 'react-icons/ai'
 
+import cooking from "../images/cooking.webp"
+import coding from "../images/coding.webp"
+import football from "../images/football.webp"
+
 export default function SingleArticle() {
 
     const {article_id} = useParams();
@@ -59,9 +63,9 @@ export default function SingleArticle() {
     }, [article, votes, article_id]);
 
     const topicImage = [
-        'https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg',
-        'https://images.pexels.com/photos/4551832/pexels-photo-4551832.jpeg',
-        'https://images.pexels.com/photos/47354/the-ball-stadion-football-the-pitch-47354.jpeg'
+        coding,
+        cooking,
+        football
     ];
 
     return(
@@ -105,7 +109,7 @@ export default function SingleArticle() {
                     }
                 </div>
                 <div className="ArticleComments">
-                    <button id="upvoteButton" onClick={() => voteDown()}>{<AiOutlineComment/>}</button>
+                    <button id="commentButton"><a href="#comments-section">{<AiOutlineComment/>}</a></button>
                     {article.comments} Comments
                 </div>
                 <p className="prompt">{loginPrompt}</p>

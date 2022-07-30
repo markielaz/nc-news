@@ -9,6 +9,10 @@ body {
   font-family: 'Barlow', sans-serif;
 }
 
+button {
+  color: black;
+}
+
 .content-wrap {
   width: 100%;
   min-height: 100vh;
@@ -71,6 +75,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  max-width: 100%;
 }
 
 #logo img {
@@ -665,5 +670,24 @@ p.prompt {
   }
   .comment-body {
     width: 50%;
+  }
+  .MainNav {
+    position: initial;
+  }
+  .comments-and-votes {
+    flex-direction: column;
+  }
+  #commentButton {
+    order:1;
+  }
+
+  .comment-card {
+    flex-direction: column;
+  }
+  .comment-card div {
+    width: 100%;
+    justify-content: center !important;
+    align-items: center;
+    margin: 0;
   }
 }

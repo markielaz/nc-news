@@ -73,7 +73,7 @@ export default function Comments() {
                             {
                                 loggedInUser.username === comment.author
                                 ? <button className="deleteComment" onClick={() => deleteHandler(comment.comment_id)}>Delete</button> 
-                                : <button className="comment-votes-icon">{<AiFillHeart/>}<span className="comment-votes-count">{comment.votes}</span></button>
+                                : <div className="comment-votes-icon">{<AiFillHeart/>}<span className="comment-votes-count">{comment.votes}</span></div>
                             }
                                 </div>
                         </article>

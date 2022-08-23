@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+#reMARKable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We were challenged to complete a full stack React App from scratch - the only thing we were provided was the test data which we used to construct our own API using Heroku.
 
-## Available Scripts
+Our choice was between "Northcoders News" and "Northcoders Games" - both variants essentially functioned the same, just using different content. My version of NC News, called "reMARKable" is a social news aggregation, web content rating, and discussion website.
 
-In the project directory, you can run:
+The site contains articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
 
-### `npm start`
+This app was created to help consolidate my understanding of making a C.R.U.D application from both a front and back end perspective.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The back end was built first in a separate repo - here is the link to that for reference purposes: https://github.com/markielaz/be-project-nc-news
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project has been deployed on Netlify ready to check out in your browser as a fully responsive application - the link is available here: https://remarkable.netlify.app/
 
-### `npm test`
+Should you wish to run the project locally, you will need to follow these instructions: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- clone down the repo `git clone https://github.com/markielaz/reMARKable.git`
+- navigate to the folder on your machine `cd reMARKable`
+- open in your text editor of choice (I recommend VSCode) `code .`
+- you will next need to install the dependencies `npm install`
+- now you should be able to start the app using `npm start`

@@ -1,4 +1,4 @@
-#reMARKable
+# reMARKable
 
 We were challenged to complete a full stack React App from scratch - the only thing we were provided was the test data which we used to construct our own API using Heroku.
 
@@ -9,6 +9,8 @@ The site contains articles which are divided into topics. Each article has user 
 This app was created to help consolidate my understanding of making a C.R.U.D application from both a front and back end perspective.
 
 The back end was built first in a separate repo - here is the link to that for reference purposes: https://github.com/markielaz/be-project-nc-news
+
+# Testing
 
 This project has been deployed on Netlify ready to check out in your browser as a fully responsive application - the link is available here: https://remarkable.netlify.app/
 
